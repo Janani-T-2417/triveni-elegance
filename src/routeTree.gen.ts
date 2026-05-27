@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RiceRouteImport } from './routes/rice'
 import { Route as ProductsRouteImport } from './routes/products'
+import { Route as KaajuRouteImport } from './routes/kaaju'
 import { Route as DalsRouteImport } from './routes/dals'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -24,6 +25,11 @@ const RiceRoute = RiceRouteImport.update({
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KaajuRoute = KaajuRouteImport.update({
+  id: '/kaaju',
+  path: '/kaaju',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DalsRoute = DalsRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dals': typeof DalsRoute
+  '/kaaju': typeof KaajuRoute
   '/products': typeof ProductsRoute
   '/rice': typeof RiceRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dals': typeof DalsRoute
+  '/kaaju': typeof KaajuRoute
   '/products': typeof ProductsRoute
   '/rice': typeof RiceRoute
 }
@@ -69,15 +77,31 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dals': typeof DalsRoute
+  '/kaaju': typeof KaajuRoute
   '/products': typeof ProductsRoute
   '/rice': typeof RiceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/dals' | '/products' | '/rice'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/dals'
+    | '/kaaju'
+    | '/products'
+    | '/rice'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/dals' | '/products' | '/rice'
-  id: '__root__' | '/' | '/about' | '/contact' | '/dals' | '/products' | '/rice'
+  to: '/' | '/about' | '/contact' | '/dals' | '/kaaju' | '/products' | '/rice'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/dals'
+    | '/kaaju'
+    | '/products'
+    | '/rice'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -85,6 +109,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DalsRoute: typeof DalsRoute
+  KaajuRoute: typeof KaajuRoute
   ProductsRoute: typeof ProductsRoute
   RiceRoute: typeof RiceRoute
 }
@@ -103,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kaaju': {
+      id: '/kaaju'
+      path: '/kaaju'
+      fullPath: '/kaaju'
+      preLoaderRoute: typeof KaajuRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dals': {
@@ -141,6 +173,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DalsRoute: DalsRoute,
+  KaajuRoute: KaajuRoute,
   ProductsRoute: ProductsRoute,
   RiceRoute: RiceRoute,
 }
