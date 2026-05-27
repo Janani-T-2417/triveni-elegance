@@ -16,7 +16,7 @@ export const Route = createFileRoute("/products")({
   component: ProductsPage,
 });
 
-const filters: ("All" | Category)[] = ["All", "Rice", "Dals", "Cashews"];
+const filters: ("All" | Category)[] = ["All", "Rice", "Dals", "Kaaju"];
 
 function ProductsPage() {
   const [q, setQ] = useState("");
