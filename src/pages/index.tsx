@@ -25,9 +25,15 @@ export default function Home() {
               <Sparkles size={14} className="text-gold-deep" />
               Wholesale from Odisha
             </p>
-            <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] text-balance">
-              Premium Quality<br />
-              <span className="italic text-sage-deep">Rice, Dals</span> & <span className="italic text-gold-deep">Cashews</span>
+            <h1 className="mt-8 font-display font-light text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.02] tracking-[-0.02em] text-balance" style={{ color: "#1F1F1F" }}>
+              <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="block">
+                Premium Quality
+              </motion.span>
+              <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="block mt-2">
+                <span className="italic font-normal" style={{ color: "#7E8F63" }}>Rice, Dals</span>
+                <span className="mx-3" style={{ color: "#1F1F1F" }}>&amp;</span>
+                <span className="italic font-normal" style={{ color: "#C89B3C" }}>Cashews</span>
+              </motion.span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
               Trusted wholesale supplier from Odisha — bringing the finest grains and pulses from trusted farms to your kitchen and business.

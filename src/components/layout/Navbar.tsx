@@ -30,11 +30,11 @@ export function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass shadow-soft" : "bg-background/60 backdrop-blur-sm"}`}>
       <div className="container-px mx-auto max-w-7xl flex items-center justify-between py-2.5">
-        <Link to="/" className="flex items-center gap-3 shrink-0">
-          <img src={logo} alt="Triveni Traders — Rice And Dals" className="h-14 w-auto md:h-16" />
+        <Link to="/" className="flex items-center gap-3 shrink-0 group">
+          <img src={logo} alt="Triveni Traders — Rice And Dals" className="h-14 w-auto md:h-16 transition-transform duration-500 group-hover:scale-105" />
           <div className="hidden sm:flex flex-col leading-tight">
-            <span className="font-display text-lg md:text-xl tracking-wide text-foreground">TRIVENI TRADERS</span>
-            <span className="text-[10px] md:text-xs italic text-sage-deep tracking-[0.2em]">Rice And Dals</span>
+            <span className="font-display font-medium text-xl md:text-2xl tracking-[0.08em]" style={{ color: "#1F1F1F" }}>TRIVENI TRADERS</span>
+            <span className="font-display italic text-sm md:text-base tracking-wide mt-0.5" style={{ color: "#7E8F63" }}>Rice And Dals</span>
           </div>
         </Link>
 
