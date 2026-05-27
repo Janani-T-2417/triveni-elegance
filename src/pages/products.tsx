@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -6,19 +5,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { ProductCard } from "@/components/ProductCard";
 import { products, type Category } from "@/lib/products";
 
-export const Route = createFileRoute("/products")({
-  head: () => ({
-    meta: [
-      { title: "Products — Triveni Traders | Rice, Dals & Cashews" },
-      { name: "description", content: "Browse our complete range of wholesale rice, dals and premium cashews." },
-    ],
-  }),
-  component: ProductsPage,
-});
-
 const filters: ("All" | Category)[] = ["All", "Rice", "Dals", "Kaaju"];
 
-function ProductsPage() {
+export default function ProductsPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<(typeof filters)[number]>("All");
 

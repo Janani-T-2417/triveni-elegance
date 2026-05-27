@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Leaf, ShieldCheck, Truck, Award, Sparkles, MessageCircle, ArrowRight, Star } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -7,17 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { products, WHATSAPP_URL } from "@/lib/products";
 import hero from "@/assets/hero.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Triveni Traders — Premium Rice, Dals & Cashews | Odisha Wholesale" },
-      { name: "description", content: "Trusted wholesale supplier of premium quality rice, dals and cashews from Jeypore, Odisha. Explore our curated range." },
-    ],
-  }),
-  component: Home,
-});
-
-function Home() {
+export default function Home() {
   const featured = products.filter(p => ["basmati","sona-masuri","toor-dal","cashews","masoor-dal","brown-rice"].includes(p.slug));
 
   return (

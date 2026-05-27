@@ -1,19 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Target, Eye, ShieldCheck, Sprout } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Triveni Traders | Wholesale Rice & Dals, Odisha" },
-      { name: "description", content: "Learn about Triveni Traders — a Jeypore-based wholesale supplier of rice, dals and cashews built on quality and trust." },
-    ],
-  }),
-  component: About,
-});
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,7 +24,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   return <span ref={ref}>{n.toLocaleString()}{suffix}</span>;
 }
 
-function About() {
+export default function About() {
   const stats = [
     { value: 500, suffix: "+", label: "Happy Customers" },
     { value: 19, suffix: "+", label: "Product Varieties" },

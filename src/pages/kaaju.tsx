@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Award, Sparkles } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -6,19 +5,7 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
 
-export const Route = createFileRoute("/kaaju")({
-  head: () => ({
-    meta: [
-      { title: "Kaaju (Cashews) — Triveni Traders | W180, W210, W240, W320" },
-      { name: "description", content: "Premium whole cashew kernels — W180, W210, W240, W320, salted and roasted varieties at wholesale rates." },
-      { property: "og:title", content: "Premium Kaaju Collection — Triveni Traders" },
-      { property: "og:description", content: "Hand-picked whole cashew kernels across every premium grade." },
-    ],
-  }),
-  component: KaajuPage,
-});
-
-function KaajuPage() {
+export default function KaajuPage() {
   const kaaju = products.filter(p => p.category === "Kaaju");
   return (
     <Layout>

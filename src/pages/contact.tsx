@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from "lucide-react";
@@ -6,17 +5,7 @@ import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { WHATSAPP_URL, PHONE, EMAIL, ADDRESS } from "@/lib/products";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Triveni Traders | Wholesale Inquiries, Odisha" },
-      { name: "description", content: "Get in touch with Triveni Traders for wholesale rice, dals and cashew inquiries. Call, WhatsApp or visit us in Jeypore, Odisha." },
-    ],
-  }),
-  component: ContactPage,
-});
-
-function ContactPage() {
+export default function ContactPage() {
   const [sent, setSent] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

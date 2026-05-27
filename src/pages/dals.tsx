@@ -1,20 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/lib/products";
 
-export const Route = createFileRoute("/dals")({
-  head: () => ({
-    meta: [
-      { title: "Dals Collection — Triveni Traders | Toor, Moong, Masoor, Urad" },
-      { name: "description", content: "Discover our premium dal collection — Toor, Moong, Masoor, Chana, Urad and more wholesale lentils from Odisha." },
-    ],
-  }),
-  component: DalsPage,
-});
-
-function DalsPage() {
+export default function DalsPage() {
   const dals = products.filter(p => p.category === "Dals");
   return (
     <Layout>
