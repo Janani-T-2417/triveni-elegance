@@ -61,19 +61,40 @@ function Home() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative">
-            <div className="absolute -inset-4 bg-gradient-gold opacity-30 blur-2xl rounded-[3rem]" />
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative px-6 md:px-10 lg:px-6 pt-6 lg:pt-10">
+            <div className="absolute inset-6 md:inset-10 lg:inset-6 bg-gradient-gold opacity-25 blur-2xl rounded-[3rem]" />
             <div className="relative rounded-[2rem] overflow-hidden shadow-card border border-border/60">
               <img src={hero} alt="Premium rice, dals and cashews" className="w-full h-full object-cover" width={1600} height={1200} />
             </div>
-            <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute -bottom-6 -left-6 glass border border-border rounded-2xl p-4 shadow-card">
-              <p className="text-xs uppercase tracking-widest text-sage-deep">Since</p>
-              <p className="font-display text-3xl text-foreground">Trusted</p>
-              <p className="text-xs text-muted-foreground">Quality you can taste</p>
+
+            {/* Top-right floating badge */}
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-0 right-0 glass border border-border rounded-2xl px-4 py-3 shadow-card flex items-center gap-3 max-w-[210px]"
+            >
+              <div className="size-10 rounded-full bg-gradient-gold flex items-center justify-center shrink-0">
+                <ShieldCheck size={18} className="text-foreground" />
+              </div>
+              <div className="leading-tight">
+                <p className="text-[10px] uppercase tracking-widest text-gold-deep">100%</p>
+                <p className="font-display text-base text-foreground">Quality Assured</p>
+              </div>
             </motion.div>
-            <motion.div animate={{ y: [0, 12, 0] }} transition={{ duration: 6, repeat: Infinity }} className="absolute -top-4 -right-4 glass border border-border rounded-2xl px-5 py-3 shadow-card">
-              <p className="text-xs uppercase tracking-widest text-gold-deep">100%</p>
-              <p className="font-display text-xl">Quality Assured</p>
+
+            {/* Bottom-left floating badge */}
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-0 left-0 glass border border-border rounded-2xl px-4 py-3 shadow-card flex items-center gap-3 max-w-[230px]"
+            >
+              <div className="size-10 rounded-full bg-gradient-sage flex items-center justify-center shrink-0">
+                <Award size={18} className="text-primary-foreground" />
+              </div>
+              <div className="leading-tight">
+                <p className="text-[10px] uppercase tracking-widest text-sage-deep">Trusted by 500+</p>
+                <p className="font-display text-base text-foreground">Wholesalers</p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -121,9 +142,9 @@ function Home() {
           <SectionHeader eyebrow="Explore" title="Our Product Categories" subtitle="A curated range built for households, kitchens and wholesalers alike." />
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
-              { to: "/rice", title: "Rice", desc: "10 premium varieties from Basmati to Idli rice", img: products[0].image },
-              { to: "/dals", title: "Dals", desc: "8 wholesome pulses — split, whole and skinless", img: products[10].image },
-              { to: "/products", title: "Cashews", desc: "Premium W320 grade whole cashews", img: products[18].image },
+              { to: "/rice", title: "Rice", desc: "10 premium varieties from Basmati to Idli rice", img: products.find(p=>p.slug==="basmati")!.image },
+              { to: "/dals", title: "Dals", desc: "8 wholesome pulses — split, whole and skinless", img: products.find(p=>p.slug==="toor-dal")!.image },
+              { to: "/kaaju", title: "Kaaju", desc: "Premium whole cashews — W180 to W320 grades", img: products.find(p=>p.slug==="kaju-w320")!.image },
             ].map((c, i) => (
               <motion.div key={c.to} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <Link to={c.to} className="group block relative rounded-3xl overflow-hidden aspect-[4/5] shadow-soft hover:shadow-card transition-shadow">

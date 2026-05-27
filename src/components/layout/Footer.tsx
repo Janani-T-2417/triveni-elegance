@@ -8,8 +8,14 @@ export function Footer() {
     <footer className="bg-secondary/70 border-t border-border mt-24">
       <div className="container-px mx-auto max-w-7xl py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img src={logo} alt="Triveni Traders" className="h-20 w-auto -ml-2" />
-          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Triveni Traders" className="h-20 w-auto -ml-2" />
+            <div className="flex flex-col leading-tight">
+              <span className="font-display text-lg tracking-wide text-foreground">TRIVENI TRADERS</span>
+              <span className="text-[11px] italic text-sage-deep tracking-[0.2em]">Rice And Dals</span>
+            </div>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Wholesale rice, dals & cashews from the heart of Odisha — sourced with care, delivered with trust.
           </p>
         </div>
@@ -17,7 +23,7 @@ export function Footer() {
         <div>
           <h4 className="text-base font-display text-sage-deep mb-4">Explore</h4>
           <ul className="space-y-2 text-sm">
-            {[["/","Home"],["/about","About"],["/products","Products"],["/rice","Rice"],["/dals","Dals"],["/contact","Contact"]].map(([to,label]) => (
+            {[["/","Home"],["/about","About"],["/products","Products"],["/rice","Rice"],["/dals","Dals"],["/kaaju","Kaaju"],["/contact","Contact"]].map(([to,label]) => (
               <li key={to}><Link to={to} className="text-muted-foreground hover:text-sage-deep transition-colors">{label}</Link></li>
             ))}
           </ul>
